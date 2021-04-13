@@ -13,5 +13,8 @@ namespace ApiTestRefreshTokens2.Contexts
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        //using migrations
+        
     }
 }

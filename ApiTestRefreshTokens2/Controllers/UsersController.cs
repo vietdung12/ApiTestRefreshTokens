@@ -27,6 +27,8 @@ namespace ApiTestRefreshTokens2.Controllers
             return Ok(result);
         }
 
+
+        //login -> tạo token
         [HttpPost("token")]
         public async Task<IActionResult> GetTokenAsync(TokenRequestModel model)
         {
@@ -35,6 +37,7 @@ namespace ApiTestRefreshTokens2.Controllers
             return Ok(result);
         }
 
+        //thêm quyền for user
         [HttpPost("addrole")]
         public async Task<IActionResult> AddRoleAsync(AddRoleModel model)
         {
@@ -42,6 +45,8 @@ namespace ApiTestRefreshTokens2.Controllers
             return Ok(result);
         }
 
+
+        //refresh token
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken()
         {
@@ -52,14 +57,17 @@ namespace ApiTestRefreshTokens2.Controllers
             return Ok(response);
         }
 
+
+        //get refresh token
         [Authorize]
-        [HttpPost("tokens/{id}")]
+        [HttpGet("tokens/{id}")]
         public IActionResult GetRefreshTokens(string id)
         {
             var user = _userService.GetById(id);
             return Ok(user.RefreshTokens);
         }
 
+        //thu hồi refresh token paramater là token refresh
         [HttpPost("revoke-token")]
         public async Task<IActionResult> RevokeToken([FromBody] RevokeTokenRequest model)
         {
@@ -73,6 +81,7 @@ namespace ApiTestRefreshTokens2.Controllers
             return Ok(new { message = "Token revoked" });
         }
 
+        //set refreshToken in Cookie
         private void SetRefreshTokenInCookie(string refreshToken)
         {
             var cookieOptions = new CookieOptions
