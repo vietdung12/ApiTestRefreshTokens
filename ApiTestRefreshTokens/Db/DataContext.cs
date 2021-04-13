@@ -9,6 +9,7 @@ namespace ApiTestRefreshTokens.Db
 {
     public class DataContext : DbContext
     {
+        //using database no sql
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<AppUser> AppUsers { get; set; }
 
