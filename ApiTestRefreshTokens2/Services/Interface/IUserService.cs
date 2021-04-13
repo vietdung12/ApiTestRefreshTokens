@@ -1,4 +1,5 @@
 ﻿using ApiTestRefreshTokens2.Models;
+using ApiTestRefreshTokens2.Models.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,9 @@ namespace ApiTestRefreshTokens2.Services.Interface
         Task<string> RegisterAsync(RegisterModel model);
         Task<AuthenticationModel> GetTokenAsync(TokenRequestModel model);
         Task<string> AddRoleAsync(AddRoleModel model);
+
+        Task<AuthenticationModel> RefreshTokenAsync(string token);
+        ApplicationUser GetById(string id);
+        bool RevokeToken(string token);
     }
 }
