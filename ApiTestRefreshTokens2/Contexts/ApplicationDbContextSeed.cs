@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApiTestRefreshTokens2.Contexts
 {
+    //add dữ liệu mẫu
     public class ApplicationDbContextSeed
     {
         public static async Task SeedEssentialsAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
